@@ -54,6 +54,7 @@ public class ProductController {
     public Optional<Product> getProductByName(@PathVariable("name") String  name){
 
         Optional<Product> productOptional = productService.findProductByName(name);
+
         return productOptional;
     }
 

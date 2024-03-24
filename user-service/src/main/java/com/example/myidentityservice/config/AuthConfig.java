@@ -49,11 +49,14 @@ public class AuthConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         //HttpSecurity配置中一定要加上csrf().disable()，即暂时关掉跨站攻击CSRF的防御。
-        return http.csrf().disable()
-                .authorizeHttpRequests()
-                .requestMatchers("/auth/register", "/auth/token", "/auth/validate").permitAll()
-                .and()
-                .build();
+
+        return null;
+
+//        return http.csrf().disable()
+//                .authorizeHttpRequests()
+//                .requestMatchers("/auth/register", "/auth/token", "/auth/validate").permitAll()
+//                .and()
+//                .build();
 
     }
 

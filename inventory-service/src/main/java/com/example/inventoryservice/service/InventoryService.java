@@ -28,7 +28,9 @@ public class InventoryService {
     public List<InventoryResponse> isInStock(String code){
 
         log.info("Wait Started.");
-       //  Thread.sleep(10000); 测试CircuitBreaker使用
+
+        //  测试CircuitBreaker使用
+        //  Thread.sleep(10000);
         log.info("Wait Ended.");
 
        // return inventoryRepository.findBySkuCode().isPresent();

@@ -4,6 +4,19 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 
+// no use
+
+/**
+ * JWT是JSON WEB TOKEN
+ * 它是基于 RFC 7519 标准定义的一种可以安全传输的的JSON对象，由于使用了数字签名，
+ * 所以是可信任和安全的。总结来说，JWT只是一个生成token的机制。
+ *
+ * JWT token的格式：header.payload.signature
+ * header中用于存放签名的生成算法: HS256
+ * payload中用于存放用户名、token的生成时间和过期时间: name,exp
+ * signature为以header和payload生成的签名，一旦header和payload被篡改，验证将失败
+ */
+
 /**
  * Kubernetes
  * 管理Docker 容器集群
@@ -69,7 +82,7 @@ import org.springframework.web.client.RestTemplate;
  *
  */
 @Configuration
-public class AppConfig {
+public class Test {
 
     /**
      * 目的： RestTemplate Bean注入IOC

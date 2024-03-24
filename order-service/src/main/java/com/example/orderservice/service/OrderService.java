@@ -89,6 +89,7 @@ public class OrderService  {
             .stream()
             .map(orderItemDto -> mapToDto(orderItemDto))
             .collect(Collectors.toList());
+        // 在 Java 16 中，toList() 方法被添加到 Collectors 类中，用于将流中的元素收集到一个不可变列表中
 
        order.setOrderItemsList(orderItemsList);
 
@@ -103,15 +104,15 @@ public class OrderService  {
 
         // 查库存
         // 调用Microservice  Call Inventory Service，传入参数 List 类型的name
-        // WebClient is a non-blocking reactive. Feign is blocking.
         // 使用 Spring WebFlux 中的 WebClient 来进行异步 HTTP GET 请求，并使用 Reactor 的 Mono 类来处理响应数据
         InventoryResponse[] inventoryResponseArray = webClientBuilder.build()
             .get()
+            // get 请求
                 .uri("http://inventory-service/api/inventory",
                         uriBuilder -> uriBuilder.queryParam("name",productNames).build())
                 .retrieve()
                 // Mono与Flux 是Spring Reactor提供的异步数据流。
-            // //.bodyToMono(InventoryResponse[].class)：将响应体转换为 Mono 类型，其中 InventoryResponse[].class 指定了响应体的数据类型为 InventoryResponse 类型的数组。
+            //.bodyToMono 将响应体转换为 Mono 类型，其中 InventoryResponse[].class 指定了响应体的数据类型为 InventoryResponse 类型的数组。
                 .bodyToMono(InventoryResponse[].class)
                 // 反射 reflect 指定对象类型
             //  .block()：这是一个阻塞操作，会等待直到 Mono 中的数据可用，并返回结果。

@@ -8,16 +8,17 @@ import org.springframework.web.reactive.function.client.WebClient;
 /**
  * Spring Boot Webflux
  *  WebFlux是完全非阻塞的。 non-blocking. Feign是 blocking
+ *
  * 就是基于 Reactor 实现的。Spring Boot 2.0 包括一个新的 spring-webflux 模块。
  * 该模块包含对响应式 HTTP 和 WebSocket 客户端的支持，以及对 REST，HTML 和 WebSocket
- * 交互等程序的支持。一般来说，Spring MVC 用于同步处理，Spring Webflux 用于异步处理。
+ * 交互等程序的支持。
+ * 一般来说，Spring MVC 用于同步处理，Spring Webflux 用于异步处理。
  * reactive web components RestController and WebClient.
  * WebClient, is a non-blocking client with support for reactive streams.
  *
  * 微服务体系结构，WebFlux 和 MVC 可以混合使用。尤其开发 IO 密集型服务的时候，选择 WebFlux 去实现。
  *
  * WebClient可以发送异步Web请求，并支持响应式编程。
- *
  * Reactive programming
  *
  * 响应式编程是基于异步和事件驱动的非阻塞程序，只是垂直通过在 JVM 内启动少量线程扩展，
